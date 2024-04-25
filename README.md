@@ -12,13 +12,15 @@ $$
 
 ## Project Specifications
 ### Integral Estimates 0: Uniform, 1d
-Using N = 10^3 evaluations, estimate the following integrals (both value and accuracy), using a uniform distribution:
+Using N = 10<sup>3</sup> evaluations, estimate the following integrals (both value and accuracy), using a uniform distribution:
 1. On [10, 10], f(x) = 1. Discuss your error estimate.
 2. On [-1, 1], f(x) = P<sub><i>l</i></sub>(x)^2 for \(<i>l</i> = 0, 1, 2, 3, 4, 5\). The function P<sub><i>l</i></sub>(x) can be produced in Python with `scipy.special.eval_legendre(l, x)`.
 3. On [10, 10], f(x) is the standard normal PDF with mean 0 and variance 1.
 4. On [10, 10], f(x) is a weighted sum of two normal distributions p<sub>1</sub>(x) and p<sub>2</sub>(x) with means -3 and 3 and standard deviations 1 and 3 respectively, using
 
-f(x) = 0.7p<sub>1</sub>(x) + 0.3p<sub>2</sub>(x).
+$$
+f(x) = 0.7p_1(x) + 0.3p_2(x).
+$$
 
 ### Integral Estimates 1: Gaussian, 1d
 Using N = 10^3 evaluations, repeat parts (a,c,d) above (the standard normal PDF) but use a sampling distribution p<sub>s</sub>(x) which is the (appropriately truncated) standard normal distribution. Discuss how the uncertainty estimate in this section compares with the uncertainty in the previous section.
