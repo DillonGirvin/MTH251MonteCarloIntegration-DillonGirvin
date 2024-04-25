@@ -1,5 +1,5 @@
 # MTH 251 Probability and Statistics Final Project: Monte Carlo Integration
-**Author:** Dillon Girvin
+**Authors:** Alden Dimarco, Dillon Girvin
 
 ## Overview
 This project utilizes Monte Carlo integration to solve the Rosenbrock integral over the interval \([-5,5]^2\). The Rosenbrock integral is defined as:
