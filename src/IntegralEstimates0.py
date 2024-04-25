@@ -108,12 +108,12 @@ def main():
 
     # Display results
     for i in range(len(means)):
-        if i > 0 and i < 8:
+        if 0 < i < 8:
             print("Problem 2-" + str(i - 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
         elif i == 0:
             print("Problem " + str(i + 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
         else:
-            print("Problem " + str(i - 6) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
+            print("Problem " + str(i - 5) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
 
 
 if __name__ == '__main__':

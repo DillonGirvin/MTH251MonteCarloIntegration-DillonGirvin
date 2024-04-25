@@ -70,8 +70,7 @@ def oneDimensionalIntegration(functionName, distribution, numPoints):
 
 def main():
     # Create Distributions
-    uniformDistrib1 = scipy.stats.truncnorm(-10, 10, loc=0, scale=1)  # Normal Distribution from -10 to 10.
-    uniformDistrib2 = scipy.stats.truncnorm(-1, 2, loc=0, scale=1)  # Normal Distribution from -1 to 1.
+    normalDistrib1 = scipy.stats.truncnorm(-10, 10, loc=0, scale=1)  # Normal Distribution from -10 to 10.
 
     # Number of points to use for the distributions
     numPoints: int = 10 ** 3
@@ -81,21 +80,21 @@ def main():
     errors: list = []
 
     # Get the mean and error for 1
-    tempMean, tempError = oneDimensionalIntegration(problem1Func, uniformDistrib1, numPoints)
+    tempMean, tempError = oneDimensionalIntegration(problem1Func, normalDistrib1, numPoints)
 
     # Add the mean and error to the list
     means.append(tempMean)
     errors.append(tempError)
 
     # Get the mean and error for 3
-    tempMean, tempError = oneDimensionalIntegration(problem3Func, uniformDistrib1, numPoints)
+    tempMean, tempError = oneDimensionalIntegration(problem3Func, normalDistrib1, numPoints)
 
     # Add the means and error to the list
     means.append(tempMean)
     errors.append(tempError)
 
     # Get the mean and error for 4
-    tempMean, tempError = oneDimensionalIntegration(problem4Func, uniformDistrib1, numPoints)
+    tempMean, tempError = oneDimensionalIntegration(problem4Func, normalDistrib1, numPoints)
 
     # Add the means and error to the list
     means.append(tempMean)
