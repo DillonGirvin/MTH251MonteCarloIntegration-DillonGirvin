@@ -23,7 +23,7 @@ f(x) = 0.7p_1(x) + 0.3p_2(x).
 $$
 
 ### Integral Estimates 1: Gaussian, 1d
-Using N = 10^3 evaluations, repeat parts (a,c,d) above (the standard normal PDF) but use a sampling distribution p<sub>s</sub>(x) which is the (appropriately truncated) standard normal distribution. Discuss how the uncertainty estimate in this section compares with the uncertainty in the previous section.
+Using N = 10<sup>3</sup> evaluations, repeat parts (a,c,d) above (the standard normal PDF) but use a sampling distribution p<sub>s</sub>(x) which is the (appropriately truncated) standard normal distribution. Discuss how the uncertainty estimate in this section compares with the uncertainty in the previous section.
 
 ## Extra Credit Opportunities
 - **Extra Credit 0:** Repeat the project using a (truncated?) normal distribution for the sampling distribution, with chosen mean and covariance to improve sampling efficiency. Explain the parameters selected for the sampling distribution and why.
