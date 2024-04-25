@@ -85,11 +85,12 @@ def main():
     errors.append(tempError)
 
     # Get the mean and error for 2
-    tempMean, tempError = oneDimensionalIntegration(problem2Func, uniformDistrib2, numPoints)
+    for i in range(0, 7):
+        tempMean, tempError = oneDimensionalIntegration(problem2Func, uniformDistrib2, numPoints)
 
-    # Add the means and error to the list
-    means.append(tempMean)
-    errors.append(tempError)
+        # Add the means and error to the list
+        means.append(tempMean)
+        errors.append(tempError)
 
     # Get the mean and error for 3
     tempMean, tempError = oneDimensionalIntegration(problem3Func, uniformDistrib1, numPoints)
@@ -99,23 +100,20 @@ def main():
     errors.append(tempError)
 
     # Get the mean and error for 4
-    for i in range(0, 7):
-        tempMean, tempError = oneDimensionalIntegration(problem4Func, uniformDistrib1, numPoints)
+    tempMean, tempError = oneDimensionalIntegration(problem4Func, uniformDistrib1, numPoints)
 
-        # Add the means and error to the list
-        means.append(tempMean)
-        errors.append(tempError)
+    # Add the means and error to the list
+    means.append(tempMean)
+    errors.append(tempError)
 
     # Display results
     for i in range(len(means)):
-        if i >= 1:
-            if i < 8:
-                print("Problem 2-" + str(i - 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
-            else:
-                print("Problem " + str(i - 5) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
-
-        else:
+        if i > 0 and i < 8:
+            print("Problem 2-" + str(i - 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
+        elif i == 0:
             print("Problem " + str(i + 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
+        else:
+            print("Problem " + str(i - 6) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
 
 
 if __name__ == '__main__':
