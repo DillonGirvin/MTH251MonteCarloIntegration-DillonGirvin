@@ -16,12 +16,23 @@ Author: Dillon Girvin
 
 # TODO - Add pydoc for all methods
 
+
 def problem1Func(x: np.ndarray):
     return 1
 
 
 def problem2Func(x: np.ndarray):
-    return (scipy.special.eval_legendre(0, x)) ** 2  # TODO - Determine how to use multiple l values
+    # Create L value
+    lValue: int = 0
+
+    returnVal = (scipy.special.eval_legendre(lValue, x)) ** 2
+
+    def incrementLValue():
+        nonlocal lValue
+        lValue += 1
+        return lValue
+
+    return returnVal
 
 
 def problem3Func(x: np.ndarray):
@@ -30,7 +41,10 @@ def problem3Func(x: np.ndarray):
 
 
 def problem4Func(x: np.ndarray):
-    return 0  # TODO - Implement problem 4's function
+    normal1 = scipy.stats.truncnorm(-10, 10, loc=-3, scale=1)
+    normal2 = scipy.stats.truncnorm(-10, 10, loc=3, scale=3)
+
+    return 0.7 * normal1.pdf(x) + 0.3 * normal2.pdf(x)
 
 
 # One dimensional example
@@ -84,10 +98,24 @@ def main():
     means.append(tempMean)
     errors.append(tempError)
 
+    # Get the mean and error for 4
+    for i in range(0, 7):
+        tempMean, tempError = oneDimensionalIntegration(problem4Func, uniformDistrib1, numPoints)
+
+        # Add the means and error to the list
+        means.append(tempMean)
+        errors.append(tempError)
+
     # Display results
     for i in range(len(means)):
-        print("Problem " + str(i + 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
+        if i >= 1:
+            if i < 8:
+                print("Problem 2-" + str(i - 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
+            else:
+                print("Problem " + str(i - 5) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
 
+        else:
+            print("Problem " + str(i + 1) + ":\nMean: " + str(means[i]) + "\tError: " + str(errors[i]))
 
 if __name__ == '__main__':
     main()
