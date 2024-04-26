@@ -21,16 +21,8 @@ def problem1Func(x: np.ndarray):
     return 1
 
 
-def problem2Func(x: np.ndarray):
-    # Create L value
-    lValue: int = 0
-
+def problem2Func(x: np.ndarray, lValue):
     returnVal = (scipy.special.eval_legendre(lValue, x)) ** 2
-
-    def incrementLValue():
-        nonlocal lValue
-        lValue += 1
-        return lValue
 
     return returnVal
 
@@ -65,6 +57,23 @@ def oneDimensionalIntegration(functionName, distribution, numPoints):
     return mean, error
 
 
+def oneDimensionalIntegrationLegendre(lValue, distribution, numPoints):
+    # Create Random Variables Array
+    randomVars: np.ndarray = distribution.rvs(numPoints)
+
+    # Create Probability Array for each Random Variable
+    probabilities: np.ndarray = distribution.pdf(randomVars)
+
+    # Find the mean of the random variables
+    mean = np.mean(problem2Func(randomVars, lValue) / probabilities)
+
+    # Find the error
+    error = np.std(problem2Func(randomVars, lValue) / probabilities) / np.sqrt(numPoints)
+
+    # Return the mean and error calculated
+    return mean, error
+
+
 def main():
     # Create Distributions
     uniformDistrib1 = scipy.stats.uniform(loc=-10, scale=20)  # Uniform Distribution from -10 to 10.
@@ -86,7 +95,7 @@ def main():
 
     # Get the mean and error for 2
     for i in range(0, 7):
-        tempMean, tempError = oneDimensionalIntegration(problem2Func, uniformDistrib2, numPoints)
+        tempMean, tempError = oneDimensionalIntegrationLegendre(i, uniformDistrib2, numPoints)
 
         # Add the means and error to the list
         means.append(tempMean)
