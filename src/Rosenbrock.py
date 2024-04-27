@@ -3,6 +3,7 @@ import numpy
 import numpy as np
 import IntegralEstimates0
 
+
 # TODO - Add pydocs
 
 # 2 Dimensional Uniform Distribution Class
@@ -38,7 +39,7 @@ class TwoDimUniform(object):
 
 
 def rosenbrockFunction(x1: float, x2: float):
-    return (1 - x1)**2 + 100 * (x2 - x1**2)**2
+    return - (np.array(np.power((1. - x1), 2) + 100. * np.power((x2 - x1 ** 2), 2), dtype=float))
 
 
 def main():
